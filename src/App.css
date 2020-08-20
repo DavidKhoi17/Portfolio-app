@@ -70,9 +70,9 @@ body{
 }
 
 /* Color Theme Swatches in RGBA */
-.color0{ background-color: rgba(200, 200, 200, 1); }
-.color1{ background-color: rgba(201, 255, 245, 1); }
-.color2{ background-color: rgba(183, 232, 209, 1); }
-.color3{ background-color: rgba(214, 255, 224, 1); }
-.color4{ background-color: rgba(185, 232, 183, 1); }
-.color5{ background-color: rgba(222, 255, 201, 1); }
+.color0{ background-color: rgb(236, 157, 10); }
+.color1{ background-color: rgb(236, 157, 10); }
+.color2{ background-color: rgb(236, 157, 10); }
+.color3{ background-color: rgb(236, 157, 10); }
+.color4{ background-color: rgb(236, 157, 10); }
+.color5{ background-color: rgb(236, 157, 10); }

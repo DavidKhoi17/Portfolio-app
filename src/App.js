@@ -28,12 +28,25 @@ class  App extends Component {
           description: 'Bronze sculpture fitted for morden office space'
         }
       ],
-
+      projectToUpdate:
+        {
+          id:2,
+          name:'The thinking man',
+          description: 'Bronze sculpture fitted for morden office space'
+        }
+      
     }
 
   }
   setActiveView = (view) => {
     this.setState({activeView:view})
+  }
+
+  setProjectToUpdate = (id) => {
+    var foundProject = this.state.projects.find((project) => {
+      return project.id === id
+    })
+    this.setState({projectToUpdate:foundProject})
   }
 
   //CRUD methods in React using the API backend
@@ -45,7 +58,6 @@ class  App extends Component {
   }
 
   addProject = (data) => {
-    
     axios.post(urlPrefix+'/projects',data)
     .then(res => {
       this.getProjects()
@@ -55,7 +67,6 @@ class  App extends Component {
   deleteProject = (id) => {
     axios.delete(urlPrefix+'/projects/'+id)
     .then(res => {
-
       this.getProjects();
     })
   }
@@ -91,6 +102,8 @@ class  App extends Component {
                   var projectProps = {
                     ...project,
                     setActiveView: this.setActiveView,
+                    deleteProject: this.deleteProject,
+                    setProjectToUpdate: this.setProjectToUpdate,
                   }
                   return (<Project {...projectProps} />)
                 })
@@ -121,7 +134,7 @@ class  App extends Component {
             </div>
             <div className="main">
               <h3>Update a project</h3>
-              <UpdateProjectForm/>
+              <UpdateProjectForm {...this.state.projectToUpdate} updateProject={this.updateProject} setActiveView={this.setActiveView}/>
             </div>
 
           </View>
